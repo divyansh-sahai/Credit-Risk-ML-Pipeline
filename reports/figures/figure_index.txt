@@ -1,0 +1,127 @@
+CREDIT RISK ML PIPELINE - FIGURE INDEX
+================================================================================
+
+Figure 01
+Notebook cell: 48
+Code: # Calculate target class percentages target_percentages = (     df[TARGET_COLUMN]     .value_counts(normalize=True)     .sort_index() * 100 )  # Create target distribution plot plt.figure(figsize=(8, 5))  bars = plt.bar(     ["Non-Default (0)", "Default (1)"],     target_percentages.values )  plt.title("Credit Default Target Distribution") plt.ylabel("Percentage of Customers") plt.xlabel("Target Class")  # Add percentage labels for bar, percentage in zip(bars, target_percentages.values):     plt...
+--------------------------------------------------------------------------------
+
+Figure 02
+Notebook cell: 50
+Code: # Select the 15 features with the highest missing-value percentage top_missing_features = (     missing_summary     .sort_values("Missing Percentage", ascending=False)     .head(15)     .sort_values("Missing Percentage") )  # Create missing-value visualization plt.figure(figsize=(10, 7))  plt.barh(     top_missing_features.index,     top_missing_features["Missing Percentage"] )  plt.title("Top 15 Features by Missing-Value Percentage") plt.xlabel("Missing Values (%)") plt.ylabel("Feature")  # Add...
+--------------------------------------------------------------------------------
+
+Figure 03
+Notebook cell: 52
+Code: # Calculate default rate by gender gender_default_rate = (     df.groupby("CODE_GENDER")[TARGET_COLUMN]     .mean()     .mul(100)     .sort_values(ascending=False) )  print("Default rate by gender:") display(gender_default_rate.to_frame("Default Rate (%)"))  # Create visualization plt.figure(figsize=(8, 5))  bars = plt.bar(     gender_default_rate.index,     gender_default_rate.values )  plt.title("Default Rate by Gender") plt.xlabel("Gender") plt.ylabel("Default Rate (%)")  # Add percentage lab...
+--------------------------------------------------------------------------------
+
+Figure 04
+Notebook cell: 54
+Code: # Calculate default rate by income type income_type_default_rate = (     df.groupby("NAME_INCOME_TYPE")[TARGET_COLUMN]     .mean()     .mul(100)     .sort_values(ascending=False) )  print("Default rate by income type:") display(     income_type_default_rate.to_frame("Default Rate (%)") )  # Create visualization plt.figure(figsize=(10, 6))  bars = plt.barh(     income_type_default_rate.index,     income_type_default_rate.values )  plt.title("Default Rate by Income Type") plt.xlabel("Default Rate ...
+--------------------------------------------------------------------------------
+
+Figure 05
+Notebook cell: 56
+Code: # Calculate default rate by education level education_default_rate = (     df.groupby("NAME_EDUCATION_TYPE")[TARGET_COLUMN]     .mean()     .mul(100)     .sort_values(ascending=False) )  print("Default rate by education level:") display(     education_default_rate.to_frame("Default Rate (%)") )  # Create visualization plt.figure(figsize=(10, 6))  bars = plt.barh(     education_default_rate.index,     education_default_rate.values )  plt.title("Default Rate by Education Level") plt.xlabel("Defaul...
+--------------------------------------------------------------------------------
+
+Figure 06
+Notebook cell: 58
+Code: # Calculate default rate by contract type contract_default_rate = (     df.groupby("NAME_CONTRACT_TYPE")[TARGET_COLUMN]     .mean()     .mul(100)     .sort_values(ascending=False) )  print("Default rate by contract type:") display(     contract_default_rate.to_frame("Default Rate (%)") )  # Create visualization plt.figure(figsize=(8, 5))  bars = plt.bar(     contract_default_rate.index,     contract_default_rate.values )  plt.title("Default Rate by Contract Type") plt.xlabel("Contract Type") plt...
+--------------------------------------------------------------------------------
+
+Figure 07
+Notebook cell: 60
+Code: # Calculate default rate by housing type housing_default_rate = (     df.groupby("NAME_HOUSING_TYPE")[TARGET_COLUMN]     .mean()     .mul(100)     .sort_values(ascending=False) )  print("Default rate by housing type:") display(     housing_default_rate.to_frame("Default Rate (%)") )  # Create visualization plt.figure(figsize=(10, 6))  bars = plt.barh(     housing_default_rate.index,     housing_default_rate.values )  plt.title("Default Rate by Housing Type") plt.xlabel("Default Rate (%)") plt.yl...
+--------------------------------------------------------------------------------
+
+Figure 08
+Notebook cell: 118
+Code: # Analyze target distribution target_counts = y.value_counts().sort_index()  target_distribution = pd.DataFrame({     "Target": target_counts.index,     "Count": target_counts.values,     "Percentage": (         target_counts.values / len(y) * 100     ).round(2) })  display(target_distribution)  # Visualize target distribution plt.figure(figsize=(6, 4))  plt.bar(     target_distribution["Target"].astype(str),     target_distribution["Count"] )  plt.title("Credit Default Target Distribution") plt...
+--------------------------------------------------------------------------------
+
+Figure 09
+Notebook cell: 120
+Code: # Select key numerical variables for distribution analysis eda_numeric_features = [     "AMT_INCOME_TOTAL",     "AMT_CREDIT",     "AMT_ANNUITY",     "AMT_GOODS_PRICE",     "CNT_CHILDREN",     "CNT_FAM_MEMBERS" ]  # Plot distributions for column in eda_numeric_features:     plt.figure(figsize=(7, 4))      plt.hist(         df[column].dropna(),         bins=50     )      plt.title(f"Distribution of {column}")     plt.xlabel(column)     plt.ylabel("Frequency")      plt.tight_layout()     plt.show()
+--------------------------------------------------------------------------------
+
+Figure 10
+Notebook cell: 120
+Code: # Select key numerical variables for distribution analysis eda_numeric_features = [     "AMT_INCOME_TOTAL",     "AMT_CREDIT",     "AMT_ANNUITY",     "AMT_GOODS_PRICE",     "CNT_CHILDREN",     "CNT_FAM_MEMBERS" ]  # Plot distributions for column in eda_numeric_features:     plt.figure(figsize=(7, 4))      plt.hist(         df[column].dropna(),         bins=50     )      plt.title(f"Distribution of {column}")     plt.xlabel(column)     plt.ylabel("Frequency")      plt.tight_layout()     plt.show()
+--------------------------------------------------------------------------------
+
+Figure 11
+Notebook cell: 120
+Code: # Select key numerical variables for distribution analysis eda_numeric_features = [     "AMT_INCOME_TOTAL",     "AMT_CREDIT",     "AMT_ANNUITY",     "AMT_GOODS_PRICE",     "CNT_CHILDREN",     "CNT_FAM_MEMBERS" ]  # Plot distributions for column in eda_numeric_features:     plt.figure(figsize=(7, 4))      plt.hist(         df[column].dropna(),         bins=50     )      plt.title(f"Distribution of {column}")     plt.xlabel(column)     plt.ylabel("Frequency")      plt.tight_layout()     plt.show()
+--------------------------------------------------------------------------------
+
+Figure 12
+Notebook cell: 120
+Code: # Select key numerical variables for distribution analysis eda_numeric_features = [     "AMT_INCOME_TOTAL",     "AMT_CREDIT",     "AMT_ANNUITY",     "AMT_GOODS_PRICE",     "CNT_CHILDREN",     "CNT_FAM_MEMBERS" ]  # Plot distributions for column in eda_numeric_features:     plt.figure(figsize=(7, 4))      plt.hist(         df[column].dropna(),         bins=50     )      plt.title(f"Distribution of {column}")     plt.xlabel(column)     plt.ylabel("Frequency")      plt.tight_layout()     plt.show()
+--------------------------------------------------------------------------------
+
+Figure 13
+Notebook cell: 120
+Code: # Select key numerical variables for distribution analysis eda_numeric_features = [     "AMT_INCOME_TOTAL",     "AMT_CREDIT",     "AMT_ANNUITY",     "AMT_GOODS_PRICE",     "CNT_CHILDREN",     "CNT_FAM_MEMBERS" ]  # Plot distributions for column in eda_numeric_features:     plt.figure(figsize=(7, 4))      plt.hist(         df[column].dropna(),         bins=50     )      plt.title(f"Distribution of {column}")     plt.xlabel(column)     plt.ylabel("Frequency")      plt.tight_layout()     plt.show()
+--------------------------------------------------------------------------------
+
+Figure 14
+Notebook cell: 120
+Code: # Select key numerical variables for distribution analysis eda_numeric_features = [     "AMT_INCOME_TOTAL",     "AMT_CREDIT",     "AMT_ANNUITY",     "AMT_GOODS_PRICE",     "CNT_CHILDREN",     "CNT_FAM_MEMBERS" ]  # Plot distributions for column in eda_numeric_features:     plt.figure(figsize=(7, 4))      plt.hist(         df[column].dropna(),         bins=50     )      plt.title(f"Distribution of {column}")     plt.xlabel(column)     plt.ylabel("Frequency")      plt.tight_layout()     plt.show()
+--------------------------------------------------------------------------------
+
+Figure 15
+Notebook cell: 122
+Code: # Analyze remaining missingness eda_missing = (     df_clean.isnull()     .mean()     .mul(100)     .sort_values(ascending=False) )  eda_missing = (     eda_missing[eda_missing > 0]     .head(15)     .reset_index() )  eda_missing.columns = [     "Feature",     "Missing Percentage" ]  display(eda_missing)  # Visualize missingness plt.figure(figsize=(9, 5))  plt.barh(     eda_missing["Feature"],     eda_missing["Missing Percentage"] )  plt.title("Top Features by Missing Percentage") plt.xlabel("Mi...
+--------------------------------------------------------------------------------
+
+Figure 16
+Notebook cell: 128
+Code: # Select key numerical features for correlation analysis correlation_features = [     "AMT_INCOME_TOTAL",     "AMT_CREDIT",     "AMT_ANNUITY",     "AMT_GOODS_PRICE",     "CNT_CHILDREN",     "CNT_FAM_MEMBERS",     "REGION_POPULATION_RELATIVE",     "EXT_SOURCE_2",     "EXT_SOURCE_3" ]  # Calculate correlation matrix correlation_matrix = (     df_clean[correlation_features]     .corr() )  display(correlation_matrix.round(2))  # Visualize correlation matrix plt.figure(figsize=(9, 7))  plt.imshow(   ...
+--------------------------------------------------------------------------------
+
+Figure 17
+Notebook cell: 208
+Code: from sklearn.metrics import confusion_matrix  # Generate confusion matrices for model_name, predictions in model_predictions_dict.items():     cm = confusion_matrix(         y_test,         predictions     )      print(f"\n{model_name} Confusion Matrix:")     print(cm)      plt.figure(figsize=(5, 4))      plt.imshow(cm)      plt.title(f"{model_name} - Confusion Matrix")     plt.xlabel("Predicted Class")     plt.ylabel("Actual Class")      plt.xticks([0, 1], ["Non-Default", "Default"])     plt.yt...
+--------------------------------------------------------------------------------
+
+Figure 18
+Notebook cell: 208
+Code: from sklearn.metrics import confusion_matrix  # Generate confusion matrices for model_name, predictions in model_predictions_dict.items():     cm = confusion_matrix(         y_test,         predictions     )      print(f"\n{model_name} Confusion Matrix:")     print(cm)      plt.figure(figsize=(5, 4))      plt.imshow(cm)      plt.title(f"{model_name} - Confusion Matrix")     plt.xlabel("Predicted Class")     plt.ylabel("Actual Class")      plt.xticks([0, 1], ["Non-Default", "Default"])     plt.yt...
+--------------------------------------------------------------------------------
+
+Figure 19
+Notebook cell: 208
+Code: from sklearn.metrics import confusion_matrix  # Generate confusion matrices for model_name, predictions in model_predictions_dict.items():     cm = confusion_matrix(         y_test,         predictions     )      print(f"\n{model_name} Confusion Matrix:")     print(cm)      plt.figure(figsize=(5, 4))      plt.imshow(cm)      plt.title(f"{model_name} - Confusion Matrix")     plt.xlabel("Predicted Class")     plt.ylabel("Actual Class")      plt.xticks([0, 1], ["Non-Default", "Default"])     plt.yt...
+--------------------------------------------------------------------------------
+
+Figure 20
+Notebook cell: 210
+Code: from sklearn.metrics import roc_curve  # Plot ROC curves plt.figure(figsize=(8, 6))  for model_name, probabilities in model_probabilities.items():     fpr, tpr, _ = roc_curve(         y_test,         probabilities     )      auc_score = roc_auc_score(         y_test,         probabilities     )      plt.plot(         fpr,         tpr,         label=f"{model_name} (AUC = {auc_score:.4f})"     )  plt.plot(     [0, 1],     [0, 1],     linestyle="--",     label="Random Classifier" )  plt.title("ROC ...
+--------------------------------------------------------------------------------
+
+Figure 21
+Notebook cell: 212
+Code: from sklearn.metrics import precision_recall_curve  # Plot Precision-Recall curves plt.figure(figsize=(8, 6))  for model_name, probabilities in model_probabilities.items():     precision, recall, _ = precision_recall_curve(         y_test,         probabilities     )      pr_auc = average_precision_score(         y_test,         probabilities     )      plt.plot(         recall,         precision,         label=f"{model_name} (PR-AUC = {pr_auc:.4f})"     )  plt.title("Precision-Recall Curve Comp...
+--------------------------------------------------------------------------------
+
+Figure 22
+Notebook cell: 218
+Code: # Plot precision and recall across thresholds plt.figure(figsize=(8, 5))  plt.plot(     threshold_results["Threshold"],     threshold_results["Precision"],     marker="o",     label="Precision" )  plt.plot(     threshold_results["Threshold"],     threshold_results["Recall"],     marker="o",     label="Recall" )  plt.xlabel("Classification Threshold") plt.ylabel("Score") plt.title(     f"Precision-Recall Trade-Off — {best_model_name}" )  plt.xticks(thresholds) plt.legend() plt.grid(alpha=0.3)  pl...
+--------------------------------------------------------------------------------
+
+Figure 23
+Notebook cell: 220
+Code: # Plot false-positive and false-negative rates plt.figure(figsize=(8, 5))  plt.plot(     threshold_results["Threshold"],     threshold_results["False Positive Rate"],     marker="o",     label="False Positive Rate" )  plt.plot(     threshold_results["Threshold"],     threshold_results["False Negative Rate"],     marker="o",     label="False Negative Rate" )  plt.xlabel("Classification Threshold") plt.ylabel("Rate") plt.title(     f"Error Rate Trade-Off — {best_model_name}" )  plt.xticks(threshol...
+--------------------------------------------------------------------------------
+
+Figure 24
+Notebook cell: 230
+Code: # Extract Random Forest feature importance random_forest_importance = pd.DataFrame({     "Feature": feature_names,     "Importance": random_forest_model.feature_importances_ })  random_forest_importance = (     random_forest_importance     .sort_values(         "Importance",         ascending=False     ) )  print("Top 20 Random Forest features:") display(     random_forest_importance.head(20) )  # Visualize top 15 features top_rf_features = random_forest_importance.head(15)  plt.figure(figsize=(...
+--------------------------------------------------------------------------------
+
+Figure 25
+Notebook cell: 232
+Code: # Extract XGBoost feature importance xgb_importance = pd.DataFrame({     "Feature": feature_names,     "Importance": xgb_model.feature_importances_ })  xgb_importance = (     xgb_importance     .sort_values(         "Importance",         ascending=False     ) )  print("Top 20 XGBoost features:") display(     xgb_importance.head(20) )  # Visualize top 15 features top_xgb_features = xgb_importance.head(15)  plt.figure(figsize=(9, 6))  plt.barh(     top_xgb_features["Feature"][::-1],     top_xgb_fe...
+--------------------------------------------------------------------------------
