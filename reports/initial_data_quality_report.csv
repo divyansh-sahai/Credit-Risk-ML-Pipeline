@@ -1,0 +1,14 @@
+Metric,Value
+Total Rows,307511.0
+Total Columns,122.0
+Numerical Features,105.0
+Categorical Features,16.0
+Columns With Missing Values,67.0
+Features With >40% Missing Values,49.0
+Duplicate Records,0.0
+Constant Numerical Features,0.0
+Near-Constant Numerical Features,18.0
+Target Class 0 Count,282686.0
+Target Class 1 Count,24825.0
+Target Class 0 Percentage,91.93
+Target Class 1 Percentage,8.07

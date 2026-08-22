@@ -1,0 +1,4 @@
+Scenario,Average_Default_Probability,Median_Default_Probability,High_Risk_Percentage
+Baseline,0.39808044,0.37288544,18.721037998146432
+Moderate Stress,0.40082484,0.37596583,19.109636928279922
+Severe Stress,0.40465084,0.38070592,19.49986179535958

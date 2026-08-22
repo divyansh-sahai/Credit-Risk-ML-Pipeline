@@ -1,0 +1,12 @@
+Metric,Value
+Total Customers,307511
+Initial Features,71
+Final Processed Features,179
+Training Customers,246008
+Test Customers,61503
+Best Model,XGBoost
+Best ROC-AUC,0.7519828405830806
+Best PR-AUC,0.2377979347835935
+Optimal Clusters,2
+Silhouette Score,0.5064669325270248
+Recommended Threshold,0.6

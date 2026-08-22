@@ -1,0 +1,12 @@
+Finding,Value
+Dataset Rows,307511.0
+Dataset Columns,122.0
+Numerical Features,105.0
+Categorical Features,16.0
+Columns With Missing Values,67.0
+Features With >40% Missing Values,49.0
+Duplicate Records,0.0
+Constant Numerical Features,0.0
+Near-Constant Numerical Features,18.0
+Highly Correlated Feature Pairs,112.0
+Default Rate (%),8.07
