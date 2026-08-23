@@ -32,21 +32,13 @@ The project aims to:
 - Perform baseline, moderate-stress, and severe-stress scenario analysis.
 - Produce reproducible outputs, evaluation reports, and visualizations.
 
-## 3. Project Objectives
+## 4. Dataset
 
-The project aims to:
+The project uses a large-scale credit-risk dataset containing **307,511 customer records** and **71 initial features**. The dataset contains customer-level financial, demographic, credit, and application-related variables used to assess default risk.
 
-- Build a scalable credit-risk data processing pipeline using PySpark.
-- Perform data-quality assessment, cleaning, and preprocessing.
-- Engineer and select features relevant to customer default prediction.
-- Develop and compare multiple machine learning classification models.
-- Evaluate models using ROC-AUC, PR-AUC, precision, recall, and F1-score.
-- Optimize the classification threshold based on precision-recall trade-offs.
-- Segment customers using unsupervised learning and evaluate cluster quality.
-- Analyze model feature importance to improve interpretability.
-- Establish monitoring outputs for data, prediction, and risk-segment behaviour.
-- Perform baseline, moderate-stress, and severe-stress scenario analysis.
-- Produce reproducible outputs, evaluation reports, and visualizations.
+The data is processed through the pipeline before modelling, resulting in **179 processed features** after preprocessing and feature engineering. The dataset is divided into **246,008 training customers** and **61,503 test customers**.
+
+The original raw dataset is retained separately from the processed modelling data to maintain a clear distinction between source data and model-ready features.
 
 ## 5. Technology Stack
 
@@ -310,11 +302,12 @@ Ensure the following are installed before running the project:
 - Java Runtime Environment compatible with PySpark
 - Git
 
-### 1. Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/divyansh-sahai/Credit-Risk-ML-Pipeline.git
 cd Credit-Risk-ML-Pipeline
+```
 
 ## 22. How to Run the Project
 
@@ -345,7 +338,7 @@ These outputs provide reproducible evidence supporting the model-selection, thre
 
 ## 24. Visualizations
 
-The project includes **25 generated figures** covering exploratory analysis, model evaluation, threshold analysis, and feature importance.
+The project includes **8 generated figures** covering exploratory analysis, model evaluation, threshold analysis, and feature importance.
 
 ### Target and Data Analysis
 
